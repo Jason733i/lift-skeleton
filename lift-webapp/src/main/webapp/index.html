@@ -1,15 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head><meta content="text/html; charset=UTF-8" http-equiv="content-type" /><title>Home</title></head>
-  <body class="lift:content_id=main">
-    <div id="main" class="lift:surround?with=default;at=content">
-      <h2>Welcome to your project!</h2>
-      <p>
-	<span class="lift:helloWorld.howdy">
-	  Welcome to your Lift app at <span id="time">Time goes here</span>
-	</span>
-      </p>
+<!doctype html>
+<html ng-app="skeleton" lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <title ng-bind="'Lift-Skeleton &mdash; ' + title">Lift-Skeleton</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/core-services.js"></script>
+    <script src="js/directives/directives.js"></script>
+    <script src="js/controllers/header-controller.js"></script>
+    <script src="js/controllers/home-controller.js"></script>
+    <script src="js/controllers/footer-controller.js"></script>
+</head>
+<body>
+    <div ng-controller="HeaderController">
+        <img src="images/cyrus-logo.png" title="{{ siteName }} | {{ appName }}">
+        <h3>{{ appName }}</h3>
+        <ul class="nav">
+            <li ng-repeat="menuItem in menuItems">
+                <a href="{{ menuItem.url }}">{{ menuItem.name }}</a>
+            </li>
+        </ul>
     </div>
-  </body>
+    <hr/>
+    <div ng-view></div>
+    <hr/>
+    <div ng-controller="FooterController">
+        {{ copyright }} &copy; {{ year }}
+    </div>
+</body>
 </html>
 
