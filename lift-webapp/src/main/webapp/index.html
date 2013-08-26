@@ -1,10 +1,11 @@
 <!doctype html>
 <html ng-app="skeleton" lang="en">
 <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
     <title ng-bind="'Lift-Skeleton &mdash; ' + title">Lift-Skeleton</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/services/core-services.js"></script>
@@ -12,23 +13,45 @@
     <script src="js/controllers/header-controller.js"></script>
     <script src="js/controllers/home-controller.js"></script>
     <script src="js/controllers/footer-controller.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="css/styles.css" rel="stylesheet">
 </head>
-<body>
-    <div ng-controller="HeaderController">
-        <img src="images/cyrus-logo.png" title="{{ siteName }} | {{ appName }}">
-        <h3>{{ appName }}</h3>
-        <ul class="nav">
-            <li ng-repeat="menuItem in menuItems">
-                <a href="{{ menuItem.url }}">{{ menuItem.name }}</a>
-            </li>
-        </ul>
-    </div>
-    <hr/>
-    <div ng-view></div>
-    <hr/>
-    <div ng-controller="FooterController">
-        {{ copyright }} &copy; {{ year }}
-    </div>
-</body>
+    <body data-content-script-loaded="1">
+
+        <div ng-controller="HeaderController" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/home">{{ appName }}</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li ng-repeat="menuItem in menuItems">
+                            <a href="{{ menuItem.url }}">{{ menuItem.name }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse -->
+            </div>
+        </div>
+
+        <div class="jumbotron">
+            <div class="container" ng-view></div>
+        </div>
+
+        <div class="container" ng-controller="FooterController">
+            <footer>
+                {{ copyright }} &copy; {{ year }}
+            </footer>
+        </div>
+
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </body>
 </html>
 
