@@ -1,1 +1,16 @@
-Implement this page to demonstrate client server connections using a json API served by our Lift app!
+<!doctype html>
+<div ng-controller="ExampleController">
+    {{ something }}
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Age</th>
+        </tr>
+        <tr ng-repeat="thing in things">
+            <td>{{ thing.name }}</td>
+            <td>{{ thing.type }}</td>
+            <td>{{ thing.age }}</td>
+        </tr>
+    </table>
+</div>
